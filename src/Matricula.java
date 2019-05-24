@@ -11,4 +11,28 @@ public class Matricula {
         this.curso = curso;
         this.dataDeMatricula = new Date();
     }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public Date getDataDeMatricula() {
+        return dataDeMatricula;
+    }
+
+    public void setDataDeMatricula(Date dataDeMatricula) {
+        this.dataDeMatricula = dataDeMatricula;
+    }
 }

@@ -65,6 +65,9 @@ public class Teste {
         digitalHouseManager.alocarProfessores(20002, 8888, 9999);
 
 
+        System.out.println(digitalHouseManager.consultarMatricula(1414).getNome());
+
+
         
 
 

@@ -10,6 +10,9 @@ public class DigitalHouseManager {
 
     public void registrarCurso (String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos){
         Curso curso = new Curso();
+        curso.setNome(nome);
+        curso.setCodigoDeCurso(codigoCurso);
+        curso.setQtdMaximaDeAlunos(quantidadeMaximaDeAlunos);
         listaDeCursos.add(curso);
     }
 
@@ -78,9 +81,9 @@ public class DigitalHouseManager {
         if (cursoEncontrado.adcionarUmAluno(alunoEncontrado)){
             Matricula matricula = new Matricula(getAlunoPorCodigo(codigoAluno), getCursoPorCodigo(codigoCurso));
             listaDeMatricula.add(matricula);
-            System.out.println("Matrícula realizada com sucesso.");
+            System.out.println("Matrícula no curso de " + cursoEncontrado.getNome() + " realizada com sucesso.");
         } else {
-            System.out.println("Não foi possível realizar a matrícula. Não há vagas.");
+            System.out.println("Não foi possível realizar a matrícula no curso de " + cursoEncontrado.getNome() + ". Não há vagas.");
 
         }
 
@@ -109,6 +112,16 @@ public class DigitalHouseManager {
         getCursoPorCodigo(codigoCurso).setProfessorAdjunto(professorAdjunto);
         getCursoPorCodigo(codigoCurso).setProfessorTitular(professorTitular);
 
+
+    }
+
+    public Curso consultarMatricula(Integer codigoAluno){
+        for (Matricula matricula : listaDeMatricula) {
+            if (matricula.getAluno().getCodigoDeAluno().equals(codigoAluno)){
+                return matricula.getCurso();
+            }
+
+        }return null;
 
     }
 
